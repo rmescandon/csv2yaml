@@ -1,0 +1,32 @@
+name: csv2yaml
+version: '0.1-0'
+summary: Converts a csv + template in an yaml output file # 79 char long summary
+description: |
+  Provide a csv file whose first line is comprised of certain headers
+  that will be considered the placeholders in a template
+  Every line in the csv, from second onwards, is a data line.
+  Provide the template with placeholders in the format $thisisaplaceholder.
+  This tool replaces placeholders by data of every csv file line. The
+  output are a bunch of yaml files, one per line. Or could it be all
+  included in a single yaml file, repeating same structure per csv line
+
+base: core18
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+parts:
+  csv2yaml:
+    plugin: dump
+    source: .
+    organize:
+      csv2yaml.py: bin/csv2yaml.py
+    stage-packages:
+      - python3
+    prime:
+      - README.md
+      - bin/csv2yaml.py
+
+apps:
+  csv2yaml:
+    command: bin/csv2yaml.py
+    plugs: [home]

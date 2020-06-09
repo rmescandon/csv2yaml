@@ -1,0 +1,7 @@
+.tox
+.coverage
+*.egg-info
+__pycache__
+*.snap
+htmlcov
+venv

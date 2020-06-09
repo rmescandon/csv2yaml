@@ -1,0 +1,5 @@
+label-for-value: $uno
+    label-for-another-value: $dos
+    lable-for-array:
+        - $tres
+        - $catorce
