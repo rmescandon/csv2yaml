@@ -28,5 +28,8 @@ parts:
 
 apps:
   csv2yaml:
+    environment:
+      LC_ALL: C.UTF-8
+      LANG: en_US.UTF-8
     command: bin/csv2yaml.py
     plugs: [home]
